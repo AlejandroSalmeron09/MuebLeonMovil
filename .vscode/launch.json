@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "muebleonapp",
+            "cwd": "muebleonapp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "muebleonapp (profile mode)",
+            "cwd": "muebleonapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "muebleonapp (release mode)",
+            "cwd": "muebleonapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

@@ -1,17 +1,39 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  var isLoggedIn = false.obs;
+  // Variables observables para manejar el estado del foco
+  var focusNodeEmail = FocusNode();
+  var focusNodePassword = FocusNode();
+  var isFocusedEmail = false.obs;
+  var isFocusedPassword = false.obs;
 
-  void login(String username, String password) {
-    // Aquí puedes agregar la lógica para autenticar al usuario
-    // Por ahora, asumimos que cualquier credencial es válida
-    if (username.isNotEmpty && password.isNotEmpty) {
-      isLoggedIn.value = true;
-    }
+  @override
+  void onInit() {
+    super.onInit();
+
+    // Listener para actualizar el estado cuando se enfoca el campo de email
+    focusNodeEmail.addListener(() {
+      isFocusedEmail.value = focusNodeEmail.hasFocus;
+    });
+
+    // Listener para actualizar el estado cuando se enfoca el campo de contraseña
+    focusNodePassword.addListener(() {
+      isFocusedPassword.value = focusNodePassword.hasFocus;
+    });
   }
 
-  void logout() {
-    isLoggedIn.value = false;
+  @override
+  void onClose() {
+    // Liberar los focus nodes cuando el controller se destruye
+    focusNodeEmail.dispose();
+    focusNodePassword.dispose();
+    super.onClose();
+  }
+
+  // Función para manejar el login (puedes agregar la lógica de autenticación aquí)
+  void login() {
+    // Lógica para iniciar sesión
+    print("Iniciando sesión...");
   }
 }
